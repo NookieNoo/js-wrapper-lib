@@ -4,7 +4,7 @@
     "description": "js functions wrappers library",
     "main": "./src/jswl.js",
     "scripts": {
-        "test": "jest __tests__/getArrElementAndIndexByObjectProp.test.js",
+        "test": "jest",
         "build": "webpack --config webpack.config.js",
         "watch": "webpack --watch --mode=development"
     },
@@ -26,7 +26,7 @@
         "core",
         "functions",
         "array unique",
-	"all array elements not empty",
+        "all array elements not empty",
         "empty function like in php"
     ],
     "babel": {

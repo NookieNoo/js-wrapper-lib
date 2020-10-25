@@ -10,9 +10,15 @@
         <h1> Привет jswl!</h1>
         (см. консоль браузера)
 
-        <script src="../dist/jswl.js"></script>  <!-- Подключаем JS файл-->
+        <script src="../src/jswl-new.js"></script>
         <script>
-            jswl.hello();
+        //    import jswl from '../src/jswl-new.js';
+            let testObj = {lang: {label: 'ru'}};
+
+            console.log(
+                jswl.obj.getPropByPath(testObj, 'lang.label')
+            );
+
         </script>
     </body>
 </html>
