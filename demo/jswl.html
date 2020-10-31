@@ -10,8 +10,13 @@
         <h1> Привет jswl!</h1>
         (см. консоль браузера)
 
-        <script src="../src/jswl-new.js"></script>
+        <script src="../dist/jswl.js"></script>
         <script>
+            window.jswl;
+            console.log(window.jswl);
+        </script>
+        <!-- <script>
+            
         //    import jswl from '../src/jswl-new.js';
             let testObj = {lang: {label: 'ru'}};
 
@@ -19,6 +24,6 @@
                 jswl.obj.getPropByPath(testObj, 'lang.label')
             );
 
-        </script>
+        </script> -->
     </body>
 </html>

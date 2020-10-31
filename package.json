@@ -2,14 +2,17 @@
     "name": "js-wrapper-lib",
     "version": "1.1.7",
     "description": "js functions wrappers library",
-    "main": "./src/jswl.js",
+    "main": "./src/jswl-new.js",
     "scripts": {
         "test": "jest",
         "build": "webpack --config webpack.config.js",
         "watch": "webpack --watch --mode=development"
     },
     "devDependencies": {
+        "@babel/core": "^7.12.3",
         "@babel/plugin-transform-modules-commonjs": "^7.8.3",
+        "@babel/preset-env": "^7.12.1",
+        "babel-loader": "^8.1.0",
         "jest": "^24.9.0",
         "webpack": "^4.28.4",
         "webpack-cli": "^3.2.1"
@@ -43,5 +46,6 @@
     "bugs": {
         "url": "https://github.com/it-for-free/js-wrapper-lib/issues"
     },
-    "homepage": "https://github.com/it-for-free/js-wrapper-lib#readme"
+    "homepage": "https://github.com/it-for-free/js-wrapper-lib#readme",
+    "type": "module"
 }

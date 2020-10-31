@@ -1,16 +1,16 @@
-import getPropIfObjectDefined from './obj';
-import obj from './obj';
+import { obj } from './obj';
+import { array } from './array';
+import { common } from './common';
 
-// const jswl = {
-//     obj: obj,
-//     array: {}
-// };
+console.log('jswl-new');
 
-
-class Jswl {
-    constructor() {
-        this.obj = obj;
-    }
+const jswl = {
+    ...common,
+    obj,
+    array
 }
 
-export default new Jswl();
+
+window.jswl = jswl;
+console.log('window.jswl', window.jswl);
+export { jswl };
