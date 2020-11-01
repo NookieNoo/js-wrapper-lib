@@ -1,16 +1,44 @@
+/**
+ * Проверит является ли 
+ * значение null или undefined
+ * 
+ * @param {mixed} value  проверяемое значение
+ * @returns {boolean}
+ */
 const isNullOrUndefined = (value) => {
     return (typeof value === "undefined"
         || value === null);
 }
 
+/**
+ * Определено ли значение:
+ * - тип не "undefined"
+ * - не = null
+ * 
+ * @param {mixed} value  проверяемое значение
+ * @returns {Boolean} 
+ */
 const isDefined = (value) => {
     return (typeof value !== "undefined" && value !== null);
 }
 
+
+/**
+ * Проверит является ли значение объектом
+ * 
+ * @param {mixed} value
+ * @returns {Boolean}
+ */
 const isObject = (value) => {
     this.isDefined(value) && (typeof value === 'object');
 }
 
+/**
+ * Проверит является ли объект пустым
+ * 
+ * @param {object} obj
+ * @returns {Boolean}
+ */
 const isObjectEmpty = (obj) => {
 
     for (var prop in obj) {
@@ -22,6 +50,14 @@ const isObjectEmpty = (obj) => {
 }
 
 
+/**
+ * Вернет значение из объекта по указанному пути (в качестве разделителей поддерживаются точки)/
+ * Использует стандартную obj.hasOwnProperty() для проверки того, что значение реально существует в объекте.
+ * 
+ * @param {object} obj   массив объектов
+ * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
+ * @returns {mixed}
+ */
 const getPropByPath = (obj, path) => {
 
     var result = {
@@ -50,6 +86,16 @@ const getPropByPath = (obj, path) => {
 }
 
 
+/**
+ * Вернет объект вида:
+ * { key: key, value: value}, где value - первый элемент из массива объектов arr,
+ * если указанное свойство этого объекта propName совпадает с указанным значением propValue
+ * 
+ * @param {array} arr        массив объектов
+ * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
+ * @param {mixed} propValue  значение поля, которое ищем
+ * @returns {object}  в случае неудачного поиска {value: undefiend, key: undefiend}
+ */
 const getArrElementAndIndexByObjectProp = (arr, propName, propValue) => {
 
     var result = {
@@ -72,12 +118,32 @@ const getArrElementAndIndexByObjectProp = (arr, propName, propValue) => {
     return result;
 }
 
+/**
+ * Вернет первый элемент из массива объектов, если указанное свойство этого объекта совпадает с указанным значением
+ * 
+ * @param {array} arr        массив объектов
+ * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
+ * @param {mixed} propValue  значение поля, которое ищем
+ * @returns {mixed}
+ */
 const getArrElementByObjectProp = (arr, propName, propValue) => {
 
     var result = getArrElementAndIndexByObjectProp(arr, propName, propValue);
     return result ? result.value : result;
 }
 
+/**
+ * Проверка на пустоту, пусто если:
+ *  - тип = "undefined"
+ *  - = null
+ *  - = ноль (как сторка или как число)
+ *  - = пустой строке
+ *  - = пустому массиву
+ *  - = false
+ * 
+ * @param {mixed} value  проверяемое значение
+ * @returns {Boolean} 
+ */
 const isEmpty = (value) => {
     return (
         typeof value === "undefined"
@@ -93,6 +159,15 @@ const isEmpty = (value) => {
     );
 }
 
+/**
+ * Если передан объект, то попытается отдать значение поля с именем propertyName
+ * иначе вернет defaultValue
+ * 
+ * @param {mixed} obj
+ * @param {string} propertyName
+ * @param {mixed} defaultValue  что возвращать, на случай если это не объект
+ * @returns {mixed}
+ */
 const getPropIfObjectDefined = function (obj, propertyName, defaultValue = '') {
     if (isObject(obj)) {
         return obj[propertyName];

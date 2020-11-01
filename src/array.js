@@ -1,10 +1,25 @@
 import { isEmpty } from './common';
 
-function inArray(value, array) {
+/**
+ * Проверит содержится ли элемент в массиве
+ * 
+ * @param {mixed} value
+ * @param {array} array
+ * @returns {Boolean}
+ */
+const inArray = (value, array) => {
     return (!(array.indexOf(value) === -1));
 }
 
-function isAnyInArray(needles, array) {
+/**
+ * Проверит содержится ли хотя бы один элемент из первого массива 
+ * во втором
+ * 
+ * @param {array} needles массив значений, которые ищем
+ * @param {array} array   массив, в котором ищем
+ * @returns {Boolean}
+ */
+const isAnyInArray = (needles, array) => {
     var result = false;
     for (var i = 0; i < needles.length; i++) {
 
@@ -16,7 +31,15 @@ function isAnyInArray(needles, array) {
     return result;
 }
 
-function removeAllElementsLike(arr, value) {
+/**
+ * Удалит из массива все эелменты в строгом смысле совпадающие с 
+ * value
+ * 
+ * @param {array} arr
+ * @param {mixed} value элемент, равные которому надо удалить из массива
+ * @return {Array|JSWrapperLib.removeAllElementsLike.newArr}
+ */
+const removeAllElementsLike = (arr, value) => {
     var newArr = [];
     arr.forEach((currentElement, index, array) => {
         if (currentElement !== value) {
@@ -27,7 +50,15 @@ function removeAllElementsLike(arr, value) {
     return newArr;
 }
 
-function uniqueArray(arr) {
+/**
+ * Вернет массив, оставив там только уникальные значения
+ * ( JavaScript 1.6 / ECMAScript 5) 
+ * @link https://stackoverflow.com/a/14438954
+ * 
+ * @param {array} arr исходный массив
+ * @return {array}
+ */
+const uniqueArray = (arr) => {
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
     }
@@ -36,7 +67,13 @@ function uniqueArray(arr) {
     return unique;
 }
 
-function allNotEmpty(arr) {
+/**
+ * Проверит, что все элементы массива не пусты (в смысле вызова для каждого jswl.isEmpty())
+ * 
+ * @param {array} value
+ * @returns {boolean}
+ */
+const allNotEmpty = (arr) => {
     var result = true;
     for (var i = 0; i < arr.length; i++) {
         if (isEmpty(arr[i])) {
@@ -54,7 +91,8 @@ const array = {
     inArray,
     isAnyInArray,
     removeAllElementsLike,
-    uniqueArray
+    uniqueArray,
+    allNotEmpty
 };
 
 export { array };

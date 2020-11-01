@@ -16,13 +16,25 @@
             // console.log(window.jswl);
 
             let testObj = {lang: {label: 'ru'}};
+            let value = '';
 
             console.log(
                 jswl.obj.getPropByPath(testObj, 'lang.label')
             );
 
+            console.log(
+                'isEmpty:',
+                jswl.isEmpty(value)
+            );
 
-            console.log('jswl22', jswl);
+            let arr = [1, 2, 3, 4];
+
+            console.log(
+                'inArray:',
+                jswl.array.inArray(5, arr)
+            );
+
+            console.log('jswlLib:', jswl);
         </script>
     </body>
 </html>
