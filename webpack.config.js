@@ -3,7 +3,7 @@ var path = require('path'); // для работы с path
 
 module.exports = [
     {
-        mode: 'production',
+        mode: 'development',
         entry: {
             'jswl': './src/jswl-new.js'
         },

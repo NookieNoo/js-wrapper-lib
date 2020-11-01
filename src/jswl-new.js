@@ -10,7 +10,7 @@ const jswl = {
     array
 }
 
-
-window.jswl = jswl;
-console.log('window.jswl', window.jswl);
-export { jswl };
+ 
+// window.jswl = jswl;
+//console.log('window.jswl', window.jswl);
+export default jswl;
