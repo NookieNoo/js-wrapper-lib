@@ -47,7 +47,7 @@ const getObjectPropBySubprop = (obj, subpropName, subpropValue) => {
     var foundValue = null;
 
     for (var prop in obj) {
-        foundValue = this.getPropByPath(obj[prop], subpropName);
+        foundValue = getPropByPath(obj[prop], subpropName);
         if (foundValue.found &&
             (foundValue.value === subpropValue)) {
             result = obj[prop];

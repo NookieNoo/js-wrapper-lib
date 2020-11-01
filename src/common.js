@@ -22,6 +22,54 @@ const isDefined = (value) => {
     return (typeof value !== "undefined" && value !== null);
 }
 
+/**
+ * Получит фрагмент строки, если её части 
+ * разделены квадратными скобками в виде массива,
+ *  например дпя:
+ * people[123][groups][34][2]
+ * вернёт массив элементов (строк):
+ * [people, 123, groups, 34, 2]
+ * -- по факту разбиение идёт по открывающей скобке
+ * 
+ * @param {string} str  строка с фрагментами. окружеными квадратными скобками
+ * @returns {array} массив строк
+ */
+const getSquareBracketedFragments = function (str) {
+
+    var nameFrags = str.split('['); // разбиваем по открывающей скобке
+    nameFrags.forEach(function (element, index, nameFrags) {
+        nameFrags[index] = element.replace(/\]/g, "");
+    });
+    return nameFrags;
+}
+
+
+/**
+ * Получит фрагмент строки фрагмент, если её части разделены квадратными скобками:
+ * people[123][groups][34][2]
+ * -- для номера 3 вернёт 34
+ * 
+ * @param {string} str  строка с фрагментами. окружеными квадратными скобками
+ * @param {int} number  номер фрагмента (начиная с нуля)
+ * @returns {string}
+ */
+const getSquareBracketedFragmentByNumber = (str, number) => {
+
+    var nameFrags = getSquareBracketedFragments(str);
+    return nameFrags[number];
+}
+
+/**
+ * Проверит, что подстрока входит в данную строку
+ * (содержится в строке) 
+ * 
+ * @param {string} str    строка
+ * @param {string} substr  подстрока
+ * @returns {Boolean}
+ */
+const checkForSubstring = (str, substr) => {
+    return (str.indexOf(substr) !== -1);
+}
 
 /**
  * Проверит является ли значение объектом
@@ -30,7 +78,7 @@ const isDefined = (value) => {
  * @returns {Boolean}
  */
 const isObject = (value) => {
-    this.isDefined(value) && (typeof value === 'object');
+    return isDefined(value) && (typeof value === 'object');
 }
 
 /**
@@ -176,6 +224,16 @@ const getPropIfObjectDefined = function (obj, propertyName, defaultValue = '') {
     }
 }
 
+/**
+ * Тестовый вызов jswl (привет мир) 
+ * Test jswl exists
+ *   
+ * @returns {undefined}
+ */
+const hello = () => {
+    console.log('Hello JSWL! ;)');
+}
+
 const common = {
     isNullOrUndefined,
     isDefined,
@@ -185,7 +243,11 @@ const common = {
     getArrElementAndIndexByObjectProp,
     getArrElementByObjectProp,
     isEmpty,
-    getPropIfObjectDefined
+    getPropIfObjectDefined,
+    getSquareBracketedFragments,
+    getSquareBracketedFragmentByNumber,
+    checkForSubstring,
+    hello
 };
 
 export {
@@ -197,6 +259,9 @@ export {
     getArrElementAndIndexByObjectProp,
     getArrElementByObjectProp,
     isEmpty,
-    getPropIfObjectDefined
+    getPropIfObjectDefined,
+    getSquareBracketedFragments,
+    getSquareBracketedFragmentByNumber,
+    checkForSubstring
 };
 export { common };

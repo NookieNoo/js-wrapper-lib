@@ -12,29 +12,7 @@
 
         <script src="../dist/jswl.js"></script>
         <script>
-            // window.jswl;
-            // console.log(window.jswl);
-
-            let testObj = {lang: {label: 'ru'}};
-            let value = '';
-
-            console.log(
-                jswl.obj.getPropByPath(testObj, 'lang.label')
-            );
-
-            console.log(
-                'isEmpty:',
-                jswl.isEmpty(value)
-            );
-
-            let arr = [1, 2, 3, 4];
-
-            console.log(
-                'inArray:',
-                jswl.array.inArray(5, arr)
-            );
-
-            console.log('jswlLib:', jswl);
+            jswl.hello();
         </script>
     </body>
 </html>
