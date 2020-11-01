@@ -4,7 +4,7 @@
     "description": "js functions wrappers library",
     "main": "./src/jswl.js",
     "scripts": {
-        "test": "jest",
+        "test": "jest __tests__/array/inArray.test.js",
         "build": "webpack --config webpack.config.js",
         "watch": "webpack --watch --mode=development"
     },
