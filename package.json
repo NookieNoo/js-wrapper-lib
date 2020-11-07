@@ -4,7 +4,7 @@
     "description": "js functions wrappers library",
     "main": "./src/jswl.js",
     "scripts": {
-        "test": "jest __tests__/array/inArray.test.js",
+        "test": "jest __tests__/common/isDefined.test.js",
         "build": "webpack --config webpack.config.js",
         "watch": "webpack --watch --mode=development"
     },
@@ -14,6 +14,7 @@
         "@babel/preset-env": "^7.12.1",
         "babel-loader": "^8.1.0",
         "jest": "^24.9.0",
+        "jsdoc": "^3.6.6",
         "webpack": "^4.28.4",
         "webpack-cli": "^3.2.1"
     },
