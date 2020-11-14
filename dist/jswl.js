@@ -91,398 +91,58 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/jswl.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./src/array.js":
+/*!**********************!*\
+  !*** ./src/array.js ***!
+  \**********************/
+/*! exports provided: array */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/**
- * jswl
- */
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"array\", function() { return array; });\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./src/common.js\");\n\n/**\n * Проверит содержится ли элемент в массиве\n * \n * @param {mixed} value\n * @param {array} array\n * @returns {Boolean}\n */\n\nvar inArray = function inArray(value, array) {\n  return !(array.indexOf(value) === -1);\n};\n/**\n * Проверит содержится ли хотя бы один элемент из первого массива \n * во втором\n * \n * @param {array} needles массив значений, которые ищем\n * @param {array} array   массив, в котором ищем\n * @returns {Boolean}\n */\n\n\nvar isAnyInArray = function isAnyInArray(needles, array) {\n  var result = false;\n\n  for (var i = 0; i < needles.length; i++) {\n    if (inArray(needles[i], array)) {\n      result = true;\n      break;\n    }\n  }\n\n  return result;\n};\n/**\n * Удалит из массива все эелменты в строгом смысле совпадающие с \n * value\n * \n * @param {array} arr\n * @param {mixed} value элемент, равные которому надо удалить из массива\n * @return {Array|JSWrapperLib.removeAllElementsLike.newArr}\n */\n\n\nvar removeAllElementsLike = function removeAllElementsLike(arr, value) {\n  var newArr = [];\n  arr.forEach(function (currentElement, index, array) {\n    if (currentElement !== value) {\n      newArr.push(currentElement);\n    }\n  });\n  return newArr;\n};\n/**\n * Вернет массив, оставив там только уникальные значения\n * ( JavaScript 1.6 / ECMAScript 5) \n * @link https://stackoverflow.com/a/14438954\n * \n * @param {array} arr исходный массив\n * @return {array}\n */\n\n\nvar uniqueArray = function uniqueArray(arr) {\n  function onlyUnique(value, index, self) {\n    return self.indexOf(value) === index;\n  }\n\n  var unique = arr.filter(onlyUnique);\n  return unique;\n};\n/**\n * Проверит, что все элементы массива не пусты (в смысле вызова для каждого jswl.isEmpty())\n * \n * @param {array} value\n * @returns {boolean}\n */\n\n\nvar allNotEmpty = function allNotEmpty(arr) {\n  var result = true;\n\n  for (var i = 0; i < arr.length; i++) {\n    if (Object(_common__WEBPACK_IMPORTED_MODULE_0__[\"isEmpty\"])(arr[i])) {\n      result = false;\n      break;\n    }\n  }\n\n  return result;\n};\n\nvar array = {\n  inArray: inArray,\n  isAnyInArray: isAnyInArray,\n  removeAllElementsLike: removeAllElementsLike,\n  uniqueArray: uniqueArray,\n  allNotEmpty: allNotEmpty\n};\n\n\n//# sourceURL=webpack://jswl/./src/array.js?");
 
-/**
- * Набор обёрток, с более удобным синтаксисо
- * (чистый JavaScript)
- * 
- * Если объявить точку входа как:
- *   var jswl = new JSWrapperLib();
- * 
- * То функции в вашем скрипте можно вызывать как:
- * 
- * jswl.имяфункции()
- * 
- * @returns {undefined}
- */
-function JSWrapperLib() {
+/***/ }),
 
+/***/ "./src/common.js":
+/*!***********************!*\
+  !*** ./src/common.js ***!
+  \***********************/
+/*! exports provided: isNullOrUndefined, isDefined, isObject, isObjectEmpty, getPropByPath, getArrElementAndIndexByObjectProp, getArrElementByObjectProp, isEmpty, getPropIfObjectDefined, getSquareBracketedFragments, getSquareBracketedFragmentByNumber, checkForSubstring, common */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    var self = this;
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isNullOrUndefined\", function() { return isNullOrUndefined; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isDefined\", function() { return isDefined; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isObject\", function() { return isObject; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isObjectEmpty\", function() { return isObjectEmpty; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getPropByPath\", function() { return getPropByPath; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getArrElementAndIndexByObjectProp\", function() { return getArrElementAndIndexByObjectProp; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getArrElementByObjectProp\", function() { return getArrElementByObjectProp; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isEmpty\", function() { return isEmpty; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getPropIfObjectDefined\", function() { return getPropIfObjectDefined; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getSquareBracketedFragments\", function() { return getSquareBracketedFragments; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getSquareBracketedFragmentByNumber\", function() { return getSquareBracketedFragmentByNumber; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"checkForSubstring\", function() { return checkForSubstring; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"common\", function() { return common; });\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\n/**\n * Проверит является ли \n * значение null или undefined\n * \n * @param {mixed} value  проверяемое значение\n * @returns {boolean}\n */\nvar isNullOrUndefined = function isNullOrUndefined(value) {\n  return typeof value === \"undefined\" || value === null;\n};\n/**\n * Определено ли значение:\n * - тип не \"undefined\"\n * - не = null\n * \n * @param {mixed} value  проверяемое значение\n * @returns {Boolean} \n */\n\n\nvar isDefined = function isDefined(value) {\n  return typeof value !== \"undefined\" && value !== null;\n};\n/**\n * Получит фрагмент строки, если её части \n * разделены квадратными скобками в виде массива,\n *  например дпя:\n * people[123][groups][34][2]\n * вернёт массив элементов (строк):\n * [people, 123, groups, 34, 2]\n * -- по факту разбиение идёт по открывающей скобке\n * \n * @param {string} str  строка с фрагментами. окружеными квадратными скобками\n * @returns {array} массив строк\n */\n\n\nvar getSquareBracketedFragments = function getSquareBracketedFragments(str) {\n  var nameFrags = str.split('['); // разбиваем по открывающей скобке\n\n  nameFrags.forEach(function (element, index, nameFrags) {\n    nameFrags[index] = element.replace(/\\]/g, \"\");\n  });\n  return nameFrags;\n};\n/**\n * Получит фрагмент строки фрагмент, если её части разделены квадратными скобками:\n * people[123][groups][34][2]\n * -- для номера 3 вернёт 34\n * \n * @param {string} str  строка с фрагментами. окружеными квадратными скобками\n * @param {int} number  номер фрагмента (начиная с нуля)\n * @returns {string}\n */\n\n\nvar getSquareBracketedFragmentByNumber = function getSquareBracketedFragmentByNumber(str, number) {\n  var nameFrags = getSquareBracketedFragments(str);\n  return nameFrags[number];\n};\n/**\n * Проверит, что подстрока входит в данную строку\n * (содержится в строке) \n * \n * @param {string} str    строка\n * @param {string} substr  подстрока\n * @returns {Boolean}\n */\n\n\nvar checkForSubstring = function checkForSubstring(str, substr) {\n  return str.indexOf(substr) !== -1;\n};\n/**\n * Проверит является ли значение объектом\n * \n * @param {mixed} value\n * @returns {Boolean}\n */\n\n\nvar isObject = function isObject(value) {\n  return isDefined(value) && _typeof(value) === 'object';\n};\n/**\n * Проверит является ли объект пустым\n * \n * @param {object} obj\n * @returns {Boolean}\n */\n\n\nvar isObjectEmpty = function isObjectEmpty(obj) {\n  for (var prop in obj) {\n    if (obj.hasOwnProperty(prop)) return false;\n  }\n\n  return true;\n};\n/**\n * Вернет значение из объекта по указанному пути (в качестве разделителей поддерживаются точки)/\n * Использует стандартную obj.hasOwnProperty() для проверки того, что значение реально существует в объекте.\n * \n * @param {object} obj   массив объектов\n * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)\n * @returns {mixed}\n */\n\n\nvar getPropByPath = function getPropByPath(obj, path) {\n  var result = {\n    found: false,\n    value: undefined\n  };\n  var fragments = path.split('.');\n  var value = obj;\n\n  for (var i = 0; i < fragments.length; i++) {\n    if (isDefined(value)) {\n      result.found = value.hasOwnProperty(fragments[i]) ? true : false;\n      value = value[fragments[i]];\n    } else {\n      result.found = false;\n      break;\n    }\n  }\n\n  if (result.found) {\n    result.value = value;\n  }\n\n  return result;\n};\n/**\n * Вернет объект вида:\n * { key: key, value: value}, где value - первый элемент из массива объектов arr,\n * если указанное свойство этого объекта propName совпадает с указанным значением propValue\n * \n * @param {array} arr        массив объектов\n * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)\n * @param {mixed} propValue  значение поля, которое ищем\n * @returns {object}  в случае неудачного поиска {value: undefiend, key: undefiend}\n */\n\n\nvar getArrElementAndIndexByObjectProp = function getArrElementAndIndexByObjectProp(arr, propName, propValue) {\n  var result = {\n    key: i,\n    value: arr[i]\n  };\n  var foundValue = null;\n\n  for (var i = 0; i < arr.length; i++) {\n    foundValue = getPropByPath(arr[i], propName);\n\n    if (foundValue.found && foundValue.value === propValue) {\n      result = {\n        key: i,\n        value: arr[i]\n      };\n      break;\n    }\n  }\n\n  return result;\n};\n/**\n * Вернет первый элемент из массива объектов, если указанное свойство этого объекта совпадает с указанным значением\n * \n * @param {array} arr        массив объектов\n * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)\n * @param {mixed} propValue  значение поля, которое ищем\n * @returns {mixed}\n */\n\n\nvar getArrElementByObjectProp = function getArrElementByObjectProp(arr, propName, propValue) {\n  var result = getArrElementAndIndexByObjectProp(arr, propName, propValue);\n  return result ? result.value : result;\n};\n/**\n * Проверка на пустоту, пусто если:\n *  - тип = \"undefined\"\n *  - = null\n *  - = ноль (как сторка или как число)\n *  - = пустой строке\n *  - = пустому массиву\n *  - = false\n * \n * @param {mixed} value  проверяемое значение\n * @returns {Boolean} \n */\n\n\nvar isEmpty = function isEmpty(value) {\n  return typeof value === \"undefined\" || value === null || value === \"\" || value === 0 || value === \"0\" || isDefined(value.length) && value.length === 0 //  empty array\n  || value === false || isObject(value) && isObjectEmpty(value) //  empty object\n  ;\n};\n/**\n * Если передан объект, то попытается отдать значение поля с именем propertyName\n * иначе вернет defaultValue\n * \n * @param {mixed} obj\n * @param {string} propertyName\n * @param {mixed} defaultValue  что возвращать, на случай если это не объект\n * @returns {mixed}\n */\n\n\nvar getPropIfObjectDefined = function getPropIfObjectDefined(obj, propertyName) {\n  var defaultValue = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';\n\n  if (isObject(obj)) {\n    return obj[propertyName];\n  } else {\n    return defaultValue;\n  }\n};\n/**\n * Тестовый вызов jswl (привет мир) \n * Test jswl exists\n *   \n * @returns {undefined}\n */\n\n\nvar hello = function hello() {\n  console.log('Hello JSWL! ;)');\n};\n\nvar common = {\n  isNullOrUndefined: isNullOrUndefined,\n  isDefined: isDefined,\n  isObject: isObject,\n  isObjectEmpty: isObjectEmpty,\n  getPropByPath: getPropByPath,\n  getArrElementAndIndexByObjectProp: getArrElementAndIndexByObjectProp,\n  getArrElementByObjectProp: getArrElementByObjectProp,\n  isEmpty: isEmpty,\n  getPropIfObjectDefined: getPropIfObjectDefined,\n  getSquareBracketedFragments: getSquareBracketedFragments,\n  getSquareBracketedFragmentByNumber: getSquareBracketedFragmentByNumber,\n  checkForSubstring: checkForSubstring,\n  hello: hello\n};\n\n\n\n//# sourceURL=webpack://jswl/./src/common.js?");
 
-    /**
-     * Проверит является ли 
-     * значение null или undefined
-     * 
-     * @param {mixed} value  проверяемое значение
-     * @returns {boolean}
-     */
-    this.isNullOrUndefined = function (value)
-    {
-	return (typeof value === "undefined"
-		|| value === null);
-    }
+/***/ }),
 
+/***/ "./src/jswl.js":
+/*!*********************!*\
+  !*** ./src/jswl.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    /**
-     * Проверит содержится ли элемент в массиве
-     * 
-     * @param {mixed} value
-     * @param {array} array
-     * @returns {Boolean}
-     */
-    this.inArray = function (value, array)
-    {
-	return (!(array.indexOf(value) === -1));
-    }
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _obj__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./obj */ \"./src/obj.js\");\n/* harmony import */ var _array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./array */ \"./src/array.js\");\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common */ \"./src/common.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\n\n\nvar jswl = _objectSpread(_objectSpread({}, _common__WEBPACK_IMPORTED_MODULE_2__[\"common\"]), {}, {\n  obj: _obj__WEBPACK_IMPORTED_MODULE_0__[\"obj\"],\n  array: _array__WEBPACK_IMPORTED_MODULE_1__[\"array\"]\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (jswl);\n\n//# sourceURL=webpack://jswl/./src/jswl.js?");
 
-    /**
-     * Проверит содержится ли хотя бы один элемент из первого массива 
-     * во втором
-     * 
-     * @param {array} needles массив значений, которые ищем
-     * @param {array} array   массив, в котором ищем
-     * @returns {Boolean}
-     */
-    this.isAnyInArray = function (needles, array)
-    {
-	var result = false;
-	for (var i = 0; i < needles.length; i++) {
+/***/ }),
 
-	    if (self.inArray(needles[i], array)) {
-		result = true;
-		break;
-	    }
-	}
-	return result;
-    }
+/***/ "./src/obj.js":
+/*!********************!*\
+  !*** ./src/obj.js ***!
+  \********************/
+/*! exports provided: obj */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    /**
-     * Проверка на пустоту, пусто если:
-     *  - тип = "undefined"
-     *  - = null
-     *  - = ноль (как сторка или как число)
-     *  - = пустой строке
-     *  - = пустому массиву
-     *  - = false
-     * 
-     * @param {mixed} value  проверяемое значение
-     * @returns {Boolean} 
-     */
-    this.isEmpty = function (value) {
-	return (
-		typeof value === "undefined"
-		|| value === null
-		|| value === ""
-		|| value === 0
-		|| value === "0"
-		|| (self.isDefined(value.length)
-			&& value.length === 0) //  empty array
-		|| value === false
-		|| (self.isObject(value)
-			&& self.isObjectEmpty(value)) //  empty object
-		);
-    }
-    
-    /**
-     * Проверит, что все элементы массива не пусты (в смысле вызова для каждого jswl.isEmpty())
-     * 
-     * @param {array} value
-     * @returns {boolean}
-     */
-    this.allNotEmpty = function (arr) {
-	var result = true;
-	for (var i = 0; i < arr.length; i++) {
-	    if (self.isEmpty(arr[i])) {
-		result = false;
-		break;
-	    }
-	}
-
-	return result;
-    }
-
-    /**
-     * Определено ли значение:
-     * - тип не "undefined"
-     * - не = null
-     * 
-     * @param {mixed} value  проверяемое значение
-     * @returns {Boolean} 
-     */
-    this.isDefined = function (value) {
-	return (typeof value !== "undefined" && value !== null);
-    }
-
-    /**
-     * Получит фрагмент строки фрагмент, если её части разделены квадратными скобками:
-     * people[123][groups][34][2]
-     * -- для номера 3 вернёт 34
-     * 
-     * @param {string} str  строка с фрагментами. окружеными квадратными скобками
-     * @param {int} number  номер фрагмента (начиная с нуля)
-     * @returns {string}
-     */
-    this.getSquareBracketedFragmentByNumber = function (str, number) {
-
-	var nameFrags = self.getSquareBracketedFragments(str);
-	return nameFrags[number];
-    }
-
-
-    /**
-     * Получит фрагмент строки, если её части 
-     * разделены квадратными скобками в виде массива,
-     *  например дпя:
-     * people[123][groups][34][2]
-     * вернёт массив элементов (строк):
-     * [people, 123, groups, 34, 2]
-     * -- по факту разбиение идёт по открывающей скобке
-     * 
-     * @param {string} str  строка с фрагментами. окружеными квадратными скобками
-     * @returns {array} массив строк
-     */
-    this.getSquareBracketedFragments = function (str) {
-
-	var nameFrags = str.split('['); // разбиваем по открывающей скобке
-	nameFrags.forEach(function (element, index, nameFrags) {
-	    nameFrags[index] = element.replace(/\]/g, "");
-	});
-	return nameFrags;
-    }
-
-    /**
-     * Проверит, что подстрока входит в данную строку
-     * (содержится в строке) 
-     * 
-     * @param {string} str    строка
-     * @param {string} substr  подстрока
-     * @returns {Boolean}
-     */
-    this.checkForSubstring = function (str, substr)
-    {
-	return (str.indexOf(substr) !== -1);
-    }
-
-    /**
-     * Тестовый вызов jswl (привет мир) 
-     * Test jswl exists
-     *   
-     * @returns {undefined}
-     */
-    this.hello = function ()
-    {
-	console.log('Hello JSWL! ;)');
-    }
-
-    /**
-     * Вернет массив, оставив там только уникальные значения
-     * ( JavaScript 1.6 / ECMAScript 5) 
-     * @link https://stackoverflow.com/a/14438954
-     * 
-     * @param {array} arr исходный массив
-     * @return {array}
-     */
-    this.uniqueArray = function (arr)
-    {
-	function onlyUnique(value, index, self) {
-	    return self.indexOf(value) === index;
-	}
-
-	var unique = arr.filter(onlyUnique);
-	return unique;
-    }
-
-    /**
-     * Удалит из массива все эелменты в строгом смысле совпадающие с 
-     * value
-     * 
-     * @param {array} arr
-     * @param {mixed} value элемент, равные которому надо удалить из массива
-     * @return {Array|JSWrapperLib.removeAllElementsLike.newArr}
-     */
-    this.removeAllElementsLike = function (arr, value)
-    {
-	var newArr = [];
-	arr.forEach((currentElement, index, array) => {
-	    if (currentElement !== value) {
-		newArr.push(currentElement);
-	    }
-	});
-
-	return newArr;
-    }
-
-
-    /**
-     * Проверит является ли объект пустым
-     * 
-     * @param {object} obj
-     * @returns {Boolean}
-     */
-    this.isObjectEmpty = function (obj) {
-
-	for (var prop in obj) {
-	    if (obj.hasOwnProperty(prop))
-		return false;
-	}
-
-	return true;
-    }
-
-    /**
-     * Проверит является ли значение объектом
-     * 
-     * @param {mixed} value
-     * @returns {Boolean}
-     */
-    this.isObject = function (value) {
-
-	return self.isDefined(value) && (typeof value === 'object');
-    }
-
-    /**
-     * Если передан объект, то попытается отдать значение поля с именем propertyName
-     * иначе вернет defaultValue
-     * 
-     * @param {mixed} obj
-     * @param {string} propertyName
-     * @param {mixed} defaultValue  что возвращать, на случай если это не объект
-     * @returns {mixed}
-     */
-    this.getPropIfObjectDefined = function (obj, propertyName, defaultValue = '')
-    {
-	if (self.isObject(obj)) {
-	    return obj[propertyName];
-	} else {
-	    return defaultValue;
-	}
-    }
-    
-    /**
-     * Вернет объект вида:
-     * { key: key, value: value}, где value - первый элемент из массива объектов arr,
-     * если указанное свойство этого объекта propName совпадает с указанным значением propValue
-     * 
-     * @param {array} arr        массив объектов
-     * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
-     * @param {mixed} propValue  значение поля, которое ищем
-     * @returns {object}  в случае неудачного поиска {value: undefiend, key: undefiend}
-     */
-    this.getArrElementAndIndexByObjectProp = (arr, propName, propValue) => {
-
-	var result = {
-	    key: i,
-	    value: arr[i]
-	};
-	var foundValue = null;
-	for (var i = 0; i < arr.length; i++) {
-	    foundValue = self.getPropByPath(arr[i], propName);
-	    if (foundValue.found &&
-		    (foundValue.value === propValue)) {
-		result = {
-		    key: i,
-		    value: arr[i]
-		};
-		break;
-	    }
-	}
-
-	return result;
-    }
-
-    /**
-     * Вернет первый элемент из массива объектов, если указанное свойство этого объекта совпадает с указанным значением
-     * 
-     * @param {array} arr        массив объектов
-     * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
-     * @param {mixed} propValue  значение поля, которое ищем
-     * @returns {mixed}
-     */
-    this.getArrElementByObjectProp = (arr, propName, propValue) => {
-
-	var result = self.getArrElementAndIndexByObjectProp(arr, propName, propValue);
-	return result ? result.value : result;
-    }
-   
-    
-    
-    /**
-     * Вернет значение из объекта по указанному пути (в качестве разделителей поддерживаются точки)/
-     * Использует стандартную obj.hasOwnProperty() для проверки того, что значение реально существует в объекте.
-     * 
-     * @param {object} obj   массив объектов
-     * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
-     * @returns {mixed}
-     */
-    this.getPropByPath = (obj, path) => {
-
-	var result = {
-	    found: false,
-	    value: undefined,
-	}
-	
-	var fragments = path.split('.');
-	var value = obj;
-	for (var i = 0; i < fragments.length; i++) {
-	    if (self.isDefined(value)) {
-		result.found = value.hasOwnProperty(fragments[i]) ? 
-		    true : false;
-		value = value[fragments[i]];
-	    } else {
-		result.found = false;
-		break;
-	    }
-	}
-	
-	if (result.found) {
-	    result.value = value;
-	}
-	
-	return result;
-    }
-    
-    
-    /**
-     * Вернет первый элемент из массива объектов, если указанное свойство этого объекта совпадает с указанным значением
-     * 
-     * @param {object} arr       объект, поля которого также содержат объекты
-     * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
-     * @param {mixed} propValue  значение поля, которое ищем
-     * @returns {mixed}
-     */
-    this.getObjectPropBySubprop = (obj, subpropName, subpropValue) => {
-
-	var result = undefined;	
-	var foundValue = null;
-	
-	for (var prop in obj) {
-	    foundValue = self.getPropByPath(obj[prop], subpropName);
-	    if (foundValue.found && 
-		    (foundValue.value === subpropValue)) {
-		result = obj[prop];
-		break;
-	    }
-	}
-	
-	return result;
-    }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (new JSWrapperLib());
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"obj\", function() { return obj; });\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./src/common.js\");\n\n/**\n * Вернет значение из объекта по указанному пути (в качестве разделителей поддерживаются точки)/\n * Использует стандартную obj.hasOwnProperty() для проверки того, что значение реально существует в объекте.\n * \n * @param {object} obj   массив объектов\n * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)\n * @returns {mixed}\n */\n\nvar getPropByPath = function getPropByPath(obj, path) {\n  var result = {\n    found: false,\n    value: undefined\n  };\n  var fragments = path.split('.');\n  var value = obj;\n\n  for (var i = 0; i < fragments.length; i++) {\n    if (Object(_common__WEBPACK_IMPORTED_MODULE_0__[\"isDefined\"])(value)) {\n      result.found = value.hasOwnProperty(fragments[i]) ? true : false;\n      value = value[fragments[i]];\n    } else {\n      result.found = false;\n      break;\n    }\n  }\n\n  if (result.found) {\n    result.value = value;\n  }\n\n  return result;\n};\n/**\n * Вернет первый элемент из массива объектов, если указанное свойство этого объекта совпадает с указанным значением\n * \n * @param {object} arr       объект, поля которого также содержат объекты\n * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)\n * @param {mixed} propValue  значение поля, которое ищем\n * @returns {mixed}\n */\n\n\nvar getObjectPropBySubprop = function getObjectPropBySubprop(obj, subpropName, subpropValue) {\n  var result = undefined;\n  var foundValue = null;\n\n  for (var prop in obj) {\n    foundValue = getPropByPath(obj[prop], subpropName);\n\n    if (foundValue.found && foundValue.value === subpropValue) {\n      result = obj[prop];\n      break;\n    }\n  }\n\n  return result;\n};\n\nvar obj = {\n  getPropByPath: getPropByPath,\n  getObjectPropBySubprop: getObjectPropBySubprop\n};\n\n\n//# sourceURL=webpack://jswl/./src/obj.js?");
 
 /***/ })
-/******/ ])["default"];
+
+/******/ })["default"];
 });
