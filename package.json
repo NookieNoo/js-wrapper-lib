@@ -4,9 +4,10 @@
     "description": "js functions wrappers library",
     "main": "./src/jswl.js",
     "scripts": {
-        "test": "jest __tests__/common/isDefined.test.js",
+        "test": "jest __tests__",
         "build": "webpack --config webpack.config.js",
-        "watch": "webpack --watch --mode=development"
+        "watch": "webpack --watch --mode=development",
+        "create-docs": "./node_modules/.bin/jsdoc -c jsdoc.json"
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",

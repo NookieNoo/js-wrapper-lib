@@ -1,7 +1,12 @@
 /**
- * Проверит является ли 
+ * Общие функции
+ * @module Общее
+ */
+
+/**
+ * Проверит является ли
  * значение null или undefined
- * 
+ *
  * @param {mixed} value  проверяемое значение
  * @returns {boolean}
  */
@@ -14,23 +19,23 @@ const isNullOrUndefined = (value) => {
  * Определено ли значение:
  * - тип не "undefined"
  * - не = null
- * 
+ *
  * @param {mixed} value  проверяемое значение
- * @returns {Boolean} 
+ * @returns {Boolean}
  */
 const isDefined = (value) => {
     return (typeof value !== "undefined" && value !== null);
 }
 
 /**
- * Получит фрагмент строки, если её части 
+ * Получит фрагмент строки, если её части
  * разделены квадратными скобками в виде массива,
  *  например дпя:
  * people[123][groups][34][2]
  * вернёт массив элементов (строк):
  * [people, 123, groups, 34, 2]
  * -- по факту разбиение идёт по открывающей скобке
- * 
+ *
  * @param {string} str  строка с фрагментами. окружеными квадратными скобками
  * @returns {array} массив строк
  */
@@ -48,7 +53,7 @@ const getSquareBracketedFragments = function (str) {
  * Получит фрагмент строки фрагмент, если её части разделены квадратными скобками:
  * people[123][groups][34][2]
  * -- для номера 3 вернёт 34
- * 
+ *
  * @param {string} str  строка с фрагментами. окружеными квадратными скобками
  * @param {int} number  номер фрагмента (начиная с нуля)
  * @returns {string}
@@ -61,8 +66,8 @@ const getSquareBracketedFragmentByNumber = (str, number) => {
 
 /**
  * Проверит, что подстрока входит в данную строку
- * (содержится в строке) 
- * 
+ * (содержится в строке)
+ *
  * @param {string} str    строка
  * @param {string} substr  подстрока
  * @returns {Boolean}
@@ -73,7 +78,7 @@ const checkForSubstring = (str, substr) => {
 
 /**
  * Проверит является ли значение объектом
- * 
+ *
  * @param {mixed} value
  * @returns {Boolean}
  */
@@ -83,7 +88,7 @@ const isObject = (value) => {
 
 /**
  * Проверит является ли объект пустым
- * 
+ *
  * @param {object} obj
  * @returns {Boolean}
  */
@@ -101,7 +106,7 @@ const isObjectEmpty = (obj) => {
 /**
  * Вернет значение из объекта по указанному пути (в качестве разделителей поддерживаются точки)/
  * Использует стандартную obj.hasOwnProperty() для проверки того, что значение реально существует в объекте.
- * 
+ *
  * @param {object} obj   массив объектов
  * @param {string} path  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
  * @returns {mixed}
@@ -138,7 +143,7 @@ const getPropByPath = (obj, path) => {
  * Вернет объект вида:
  * { key: key, value: value}, где value - первый элемент из массива объектов arr,
  * если указанное свойство этого объекта propName совпадает с указанным значением propValue
- * 
+ *
  * @param {array} arr        массив объектов
  * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
  * @param {mixed} propValue  значение поля, которое ищем
@@ -168,7 +173,7 @@ const getArrElementAndIndexByObjectProp = (arr, propName, propValue) => {
 
 /**
  * Вернет первый элемент из массива объектов, если указанное свойство этого объекта совпадает с указанным значением
- * 
+ *
  * @param {array} arr        массив объектов
  * @param {string} propName  имя-путь поля по которому ищем  например 'properties.id' (в качестве разделителей поддерживает точки)
  * @param {mixed} propValue  значение поля, которое ищем
@@ -188,9 +193,9 @@ const getArrElementByObjectProp = (arr, propName, propValue) => {
  *  - = пустой строке
  *  - = пустому массиву
  *  - = false
- * 
+ *
  * @param {mixed} value  проверяемое значение
- * @returns {Boolean} 
+ * @returns {Boolean}
  */
 const isEmpty = (value) => {
     return (
@@ -210,7 +215,7 @@ const isEmpty = (value) => {
 /**
  * Если передан объект, то попытается отдать значение поля с именем propertyName
  * иначе вернет defaultValue
- * 
+ *
  * @param {mixed} obj
  * @param {string} propertyName
  * @param {mixed} defaultValue  что возвращать, на случай если это не объект
@@ -225,9 +230,9 @@ const getPropIfObjectDefined = function (obj, propertyName, defaultValue = '') {
 }
 
 /**
- * Тестовый вызов jswl (привет мир) 
+ * Тестовый вызов jswl (привет мир)
  * Test jswl exists
- *   
+ *
  * @returns {undefined}
  */
 const hello = () => {

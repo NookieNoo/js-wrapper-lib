@@ -1,8 +1,13 @@
 import { isEmpty } from './common';
 
 /**
+ * Функции для работы с массивами
+ * @module Массивы
+ */
+
+/**
  * Проверит содержится ли элемент в массиве
- * 
+ *
  * @param {mixed} value
  * @param {array} array
  * @returns {Boolean}
@@ -12,9 +17,9 @@ const inArray = (value, array) => {
 }
 
 /**
- * Проверит содержится ли хотя бы один элемент из первого массива 
+ * Проверит содержится ли хотя бы один элемент из первого массива
  * во втором
- * 
+ *
  * @param {array} needles массив значений, которые ищем
  * @param {array} array   массив, в котором ищем
  * @returns {Boolean}
@@ -32,9 +37,9 @@ const isAnyInArray = (needles, array) => {
 }
 
 /**
- * Удалит из массива все эелменты в строгом смысле совпадающие с 
+ * Удалит из массива все эелменты в строгом смысле совпадающие с
  * value
- * 
+ *
  * @param {array} arr
  * @param {mixed} value элемент, равные которому надо удалить из массива
  * @return {Array|JSWrapperLib.removeAllElementsLike.newArr}
@@ -52,9 +57,9 @@ const removeAllElementsLike = (arr, value) => {
 
 /**
  * Вернет массив, оставив там только уникальные значения
- * ( JavaScript 1.6 / ECMAScript 5) 
+ * ( JavaScript 1.6 / ECMAScript 5)
  * @link https://stackoverflow.com/a/14438954
- * 
+ *
  * @param {array} arr исходный массив
  * @return {array}
  */
@@ -69,7 +74,7 @@ const uniqueArray = (arr) => {
 
 /**
  * Проверит, что все элементы массива не пусты (в смысле вызова для каждого jswl.isEmpty())
- * 
+ *
  * @param {array} value
  * @returns {boolean}
  */
