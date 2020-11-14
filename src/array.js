@@ -10,11 +10,24 @@ import { isEmpty } from './common';
  *
  * @param {mixed} value
  * @param {array} array
+ * @param {Boolean} strict - если true - проверка будет проведена в строгом режиме
  * @returns {Boolean}
  */
-const inArray = (value, array) => {
-    return (!(array.indexOf(value) === -1));
+const inArray = (value, array, strict = false) => {
+    if (!isEmpty(strict)) {
+        if (typeof strict === 'boolean') {
+            if(strict) return (!(array.indexOf(value) === -1));
+        } else {
+            throw new Error('3rd param must be boolean');
+        }
+    }
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] == value) return true;
+    }
+
+    return false;
 }
+
 
 /**
  * Проверит содержится ли хотя бы один элемент из первого массива
@@ -28,7 +41,7 @@ const isAnyInArray = (needles, array) => {
     var result = false;
     for (var i = 0; i < needles.length; i++) {
 
-        if (inArray(needles[i], array)) {
+        if (inArray(needles[i], array, true)) {
             result = true;
             break;
         }
@@ -64,12 +77,7 @@ const removeAllElementsLike = (arr, value) => {
  * @return {array}
  */
 const uniqueArray = (arr) => {
-    function onlyUnique(value, index, self) {
-        return self.indexOf(value) === index;
-    }
-
-    var unique = arr.filter(onlyUnique);
-    return unique;
+    return Array.from(new Set(arr));
 }
 
 /**
